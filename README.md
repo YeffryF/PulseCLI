@@ -1,0 +1,124 @@
+# Vitality Hub  
+### *Turning Behavioral Data into Predictive Insight*
+
+**Vitality Hub** is a C++ analytics application that tracks mood-related data (stress, energy, sleep, and activities) and transforms it into structured insights using statistical analysis, correlation modeling, and trend detection.
+
+The system is designed to move beyond simple logging by analyzing relationships between behaviors and internal states, helping users understand how daily actions influence overall performance and well-being.
+
+---
+
+## Key Features
+
+- **Mood Data Logging (SQLite Database)**
+  - Stores stress, energy, sleep, notes, and activity triggers
+  - Persistent storage using SQL-based database system
+
+- **Trigger-Based Behavior Tracking**
+  - Associates moods with user-defined activities (e.g., “exam”, “gym”, “work”)
+  - Groups entries by behavior to identify patterns
+
+- **Statistical Analysis Engine**
+  - Computes averages for stress, energy, and sleep
+  - 14-day trend comparison (weekly performance shifts)
+  - Rolling performance momentum tracking
+
+- **Correlation Analysis System**
+  - Measures relationships between variables using Pearson correlation
+  - Energy ↔ Sleep, Energy ↔ Stress, Sleep ↔ Stress
+  - Identifies primary behavioral drivers
+
+- **Insight Generation Engine**
+  - Converts statistical outputs into human-readable system reports
+  - Classifies system state (e.g., overload, stability, peak performance)
+
+- **Report System (OOP Architecture)**
+  - Uses inheritance-based `Report` system for structured output formatting
+  - Separates analysis logic from presentation layer
+
+---
+
+## Technical Architecture
+
+The project is built using Object-Oriented Programming (OOP) principles and layered system design:
+
+- **`MoodEntry` Class**
+  - Core data model representing a single user log entry
+  - Stores stress, energy, sleep, triggers, notes, and timestamps
+
+- **`DatabaseManager` Class**
+  - Handles SQLite database operations
+  - Responsible for inserting and retrieving mood data using SQL queries
+
+- **`AnalyticsEngine` Class**
+  - Core computation layer for statistical analysis
+  - Implements averages, correlation analysis, and trend detection
+  - Generates system insights based on computed metrics
+
+- **`Report` System (Inheritance)**
+  - Base `Report` class defines shared structure (headers/footers)
+  - Derived report classes implement specific analytics views
+
+- **`AppController` Class**
+  - Handles user interaction and application flow
+  - Connects UI input with analytics and database layers
+
+---
+
+## Data Model
+
+Each mood entry contains:
+
+- Stress Level (1–5)
+- Energy Level (1–5)
+- Sleep Hours (0–24)
+- Activity Triggers (tags)
+- Optional Notes
+- Timestamp
+
+Stored using a structured SQLite schema for persistent analysis.
+
+---
+
+## Core Design Philosophy
+
+Vitality Hub is built around the idea that behavioral patterns can be quantified and analyzed like a system.
+
+Instead of treating mood as abstract or emotional noise, the system:
+- Converts it into measurable variables
+- Finds relationships between those variables
+- Uses those relationships to generate actionable insight
+
+---
+
+## Requirements
+
+- C++17 or higher
+- SQLite3
+- CMake (for build system)
+
+---
+
+## Build & Run
+https://drive.google.com/drive/folders/1UAcX7gNLYR6_BRLjxWXVZ0XXvxGaCnPI?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto
+
+MAC Instructions
+
+1. Download your own .zip file from Google Drive to a completely new location (like your Downloads folder).  
+2. Open Terminal.
+3. Type cd and drag this folder into the Terminal, it should look something like this(note its cd then space then the path) 
+   Eg. username@Mac ~ % cd /Users/username/Downloads/VitalitySystem_v1 
+4. Run this command to unlock the app: chmod +x ./VitalityPF (then hit Enter)
+5. Try running it.
+6. IF MALWARE NOTIFICATION SHOWS UP(THANKS APPLE) DO THE FOLLOWING
+   a) Go to your System Settings > Privacy & Security.
+   b) Scroll down to the bottom and you will see Vitality PF, click "Open Anyway."
+   c) Try Opening again. 
+
+Windows Instructions
+1.Download the windows zip version and run the app. 
+
+
+
+
+make
+./VitalityHub
